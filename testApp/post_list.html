@@ -1,0 +1,12 @@
+<h1>投稿一覧</h1>
+
+<a href="{% url 'post_create' %}">新規投稿</a>
+
+<ul>
+{% for post in posts %}
+    <li>
+        {{ post.author.username }}：
+        {{ post.content }}
+    </li>
+{% endfor %}
+</ul>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>投稿テスト</title>
+</head>
+<body>
+    <h1>投稿テストページ</h1>
+
+    <!-- 投稿フォーム -->
+    <h2>投稿する</h2>
+    <form method="post">
+	{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">投稿</button>
+    </form>
+
+    <!-- 投稿一覧 -->
+    <h2>投稿一覧</h2>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.content }} （投稿者: {{ post.author.username }}）</li>
+        {% empty %}
+            <li>まだ投稿はありません。</li>
+        {% endfor %}
+    </ul>
+
